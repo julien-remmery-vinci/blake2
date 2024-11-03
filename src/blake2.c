@@ -1,3 +1,11 @@
+/*
+    Blake2b hashing algorithm implementation.
+    Made by following sources in README.
+    Author: Julien Remmery
+    Date: Sunday, November 3, 2024
+    Last modified: Sunday, November 3, 2024
+*/
+
 #include "blake2.h"
 #include <string.h>
 #include <stdio.h>
