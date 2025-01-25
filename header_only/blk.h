@@ -53,7 +53,7 @@ static const uint8_t blake2b_sigma[10][16] = {
 #define IV_SIZE 8
 #define SIGMA_SIZE 10
 #define BLAKE2B_DIGEST_LENGTH 64
-#define BLAKE2B_BLOCK_SIZE 12
+#define BLAKE2B_BLOCK_SIZE 128
 
 /*
     blake2b hashing function.
@@ -64,8 +64,7 @@ int Blk_blake2b(uint8_t *output, const uint8_t *input, size_t inputLen, const ui
 
 #endif
 
-#define BLk_IMPLEMENTATION
-#ifdef BLk_IMPLEMENTATION
+#ifdef BLK_IMPLEMENTATION
 
 #include <string.h>
 #include <stdio.h>
@@ -161,7 +160,7 @@ int Blk_blake2b(uint8_t *output, const uint8_t *input, size_t inputLen, const ui
         cBytesRemaining += BLAKE2B_BLOCK_SIZE;
     }
 
-    uint8_t *combinedInput = malloc(cBytesRemaining);
+    uint8_t *combinedInput = calloc(cBytesRemaining, sizeof(uint8_t));
     if (combinedInput == NULL) {
         return BLK_ERR_MEMORY_ALLOCATION;
     }

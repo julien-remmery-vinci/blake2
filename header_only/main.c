@@ -1,4 +1,4 @@
-#define BLk_IMPLEMENTATION
+#define BLK_IMPLEMENTATION
 #include "blk.h"
 #include <string.h>
 #include <stdio.h>
